@@ -1,0 +1,94 @@
+
+
+--- PROMPT 1: 
+Bạn là một Senior System Analyst với 10 năm kinh nghiệm trong lĩnh vực Hospitality Technology. Tôi cần bạn giúp tôi phân tích và thiết kế một Hệ thống Quản lý Khách sạn & Resort (Hotel & Resort Management System) hoàn chỉnh. Hệ thống này phục vụ cho một chuỗi khách sạn 4-5 sao với quy mô 3-5 chi nhánh. Hãy bắt đầu bằng việc liệt kê tổng quan các phân hệ (Module) cốt lõi mà hệ thống cần có, kèm theo mô tả ngắn gọn chức năng của từng phân hệ.
+
+--- PROMPT 2: 
+Rất tốt. Bây giờ hãy xác định tất cả các đối tượng người dùng (Actors) sẽ tương tác với hệ thống. Với mỗi Actor, hãy mô tả:
+- Vai trò của họ trong hệ thống
+- Các phân hệ mà họ có quyền truy cập
+- Mức độ ưu tiên (Primary / Secondary Actor)
+Yêu cầu: Phải có ít nhất 5 Actors khác nhau.
+
+--- PROMPT 3: 
+Bây giờ hãy viết User Stories theo format chuẩn "As a [role], I want [feature], so that [benefit]" cho từng Actor chính. Mỗi Actor cần có ít nhất 3 User Stories. Phân loại User Stories theo mức độ ưu tiên: Must Have, Should Have, Nice to Have.
+
+--- PROMPT 4: 
+Hãy tạo sơ đồ Use Case bằng cú pháp Mermaid cho hệ thống. Yêu cầu:
+- Thể hiện rõ ràng tất cả các Actor đã xác định ở bước trước
+- Mỗi Actor phải có ít nhất 3 use case cụ thể
+- Thể hiện các mối quan hệ <<include>> và <<extend>> nếu có
+- Chia thành 2-3 sơ đồ theo từng phân hệ chính để dễ nhìn
+
+--- PROMPT 5: 
+Sơ đồ Use case đang thiếu một số chức năng quan trọng. Hãy bổ sung thêm:
+1. Actor "Quản lý cấp cao" cần có use case "Xem báo cáo doanh thu theo chi nhánh" và "Phê duyệt chính sách giá"
+2. Actor "Khách hàng" cần có use case "Đánh giá dịch vụ sau khi checkout" và "Yêu cầu dịch vụ phòng (Room Service)"
+3. Thêm use case "Quản lý chương trình khách hàng thân thiết (Loyalty Program)" kết nối với cả Khách hàng và Quản lý
+Hãy cập nhật lại sơ đồ Mermaid.
+
+--- PROMPT 6: 
+Bây giờ hãy thiết kế sơ đồ ERD (Entity Relationship Diagram) bằng cú pháp Mermaid cho toàn bộ hệ thống. Yêu cầu:
+- Định nghĩa tất cả các bảng (Entity) cốt lõi với các trường (Attributes) quan trọng
+- Mỗi trường phải có kiểu dữ liệu (VARCHAR, INT, DATE, DECIMAL...)
+- Xác định rõ Primary Key (PK) và Foreign Key (FK)
+- Thể hiện đúng các mối quan hệ: 1-1, 1-N, N-N
+- Có ít nhất 10 bảng chính
+
+--- PROMPT 7: 
+ERD cần được cải thiện thêm:
+1. Thêm trường "status" (ENUM: available, occupied, maintenance, reserved) vào bảng Rooms
+2. Thêm bảng "Payment" riêng biệt với các trường: payment_method, transaction_id, payment_status
+3. Bảng Booking cần thêm trường "booking_source" (walk-in, website, OTA, phone) để tracking kênh đặt phòng
+4. Thêm bảng "RoomServiceOrder" cho chức năng đặt dịch vụ phòng
+5. Thêm bảng "LoyaltyProgram" và "LoyaltyTransaction" cho chương trình khách hàng thân thiết
+Hãy cập nhật lại sơ đồ ERD.
+
+--- PROMPT 8: 
+Hãy mô tả chi tiết quy trình nghiệp vụ (Business Process) cho 3 phân hệ cốt lõi:
+1. Module Đặt phòng (Reservation): Mô tả flow từ khi khách đặt phòng đến khi xác nhận
+2. Module Check-in/Check-out: Mô tả quy trình check-in, sử dụng dịch vụ, và check-out
+3. Module Thanh toán (Billing): Mô tả quy trình tạo hóa đơn, tính phí, và thanh toán
+
+Với mỗi quy trình, hãy liệt kê các bước cụ thể, điều kiện (precondition/postcondition), và xử lý ngoại lệ (exception handling).
+
+--- PROMPT 9: 
+Hãy bổ sung các yêu cầu phi chức năng cho hệ thống bao gồm:
+- Performance: Thời gian phản hồi, số lượng concurrent users
+- Security: Xác thực, phân quyền, mã hóa dữ liệu
+- Availability: Uptime, backup, disaster recovery
+- Scalability: Khả năng mở rộng khi thêm chi nhánh mới
+- Usability: Giao diện đa ngôn ngữ, responsive design
+Mỗi yêu cầu cần có metric cụ thể có thể đo lường được.
+
+--- PROMPT 10: 
+Dựa trên các yêu cầu đã phân tích, hãy đề xuất Technology Stack phù hợp cho hệ thống bao gồm:
+- Frontend Framework
+- Backend Framework
+- Database
+- API Architecture (REST vs GraphQL)
+- Cloud Infrastructure
+- CI/CD Pipeline
+Với mỗi lựa chọn, hãy giải thích lý do tại sao nó phù hợp với hệ thống khách sạn.
+
+--- PROMPT 11: 
+Bây giờ hãy tổng hợp tất cả nội dung đã phân tích ở trên thành một bản Tài liệu Đặc tả Yêu cầu Phần mềm (SRS - Software Requirements Specification) hoàn chỉnh theo chuẩn IEEE 830. Tài liệu phải bao gồm:
+1. Giới thiệu (Mục đích, Phạm vi, Thuật ngữ)
+2. Mô tả tổng quan hệ thống
+3. Các đối tượng người dùng (Actors)
+4. Yêu cầu chức năng (User Stories + Use Cases)
+5. Sơ đồ Use Case (Mermaid)
+6. Sơ đồ ERD (Mermaid)
+7. Yêu cầu phi chức năng
+8. Technology Stack đề xuất
+9. Phụ lục
+
+Format chuyên nghiệp, không có câu thừa như "Here is your document..." hay "I hope this helps...".
+
+--- PROMPT 12: 
+Hãy review lại toàn bộ tài liệu SRS và kiểm tra:
+1. Tính nhất quán giữa User Stories, Use Cases và ERD (không có chức năng nào bị thiếu entity tương ứng)
+2. Tất cả các Actor đều xuất hiện trong Use Case diagram
+3. Tất cả các mối quan hệ trong ERD đều chính xác
+4. Không có lỗi chính tả hoặc format rác
+Nếu phát hiện lỗi, hãy sửa và đưa ra bản cuối cùng.
